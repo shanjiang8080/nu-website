@@ -4,11 +4,13 @@ import Taskbar from './components/taskbar';
 import TaskbarButton from './components/taskbarButton';
 import { SetStateAction, useRef, useState } from 'react';
 import { WindowState } from './types/windowState';
-import { pageContent } from './pages';
+import { pageContent, PageKey } from './pages';
+import { iconContent, IconKey } from './desktopIcons';
+import LinkIcon from './components/linkIcon';
 
 export default function Home() {
 
-  const [windowStatuses, setWindowStatuses] = useState<Record<string, WindowState>>({
+  const [windowStatuses, setWindowStatuses] = useState<Record<PageKey, WindowState>>({
     shell: 'expanded',
     bio: 'expanded',
     school: 'expanded',
@@ -17,11 +19,10 @@ export default function Home() {
     projects: 'expanded',
   });
 
-  // 3. Create a single ref container for all window DOM elements
-  const windowRefs = useRef<Partial<Record<string, HTMLElement | null>>>({});
+  // A single ref container for all window DOM elements
+  const windowRefs = useRef<Partial<Record<PageKey, HTMLElement | null>>>({});
 
-  // 4. The concise callback that accepts the window key as an argument
-  const scrollToWindow = (windowKey: string) => {
+  const scrollToWindow = (windowKey: PageKey) => {
     // Optional: If the window is minimized or closed, you'd likely want to 
     // expand it first before scrolling so the DOM element exists/is visible.
     setWindowStatuses((prev) => ({ ...prev, [windowKey]: 'expanded' }));
@@ -38,7 +39,7 @@ export default function Home() {
     }, 0);
   };
 
-  const setWindowStatus = (windowKey: string, value: SetStateAction<WindowState>) => {
+  const setWindowStatus = (windowKey: PageKey, value: SetStateAction<WindowState>) => {
     setWindowStatuses((prev) => {
       const resolvedState = typeof value === 'function'
         ? (value as (prevState: WindowState) => WindowState)(prev[windowKey] as WindowState)
@@ -53,36 +54,55 @@ export default function Home() {
 
   return (
     <div>
-      <div className="windows-container">
+      {/* Windows Container */}
+      <div
+        className="flex flex-col items-center relative top-[calc(var(--spacing-pixel-unit)*32)] md:top-0">
         {Object.keys(pageContent).map((key) => {
-          if (windowStatuses[key] != 'expanded' && windowStatuses[key] != 'maximized') return null;
+          const windowKey = key as PageKey;
+          if (windowStatuses[windowKey] != 'expanded' && windowStatuses[windowKey] != 'maximized') return null;
           return (
             <Window
-              title={key.toUpperCase()}
-              state={windowStatuses[key]}
-              key={key}
-              ref={(el) => { windowRefs.current[key] = el; }}
-              stateSetter={(newState) => setWindowStatus(key, newState)}
+              title={windowKey.toUpperCase()}
+              state={windowStatuses[windowKey]}
+              key={windowKey}
+              ref={(el) => { windowRefs.current[windowKey] = el; }}
+              stateSetter={(newState) => setWindowStatus(windowKey, newState)}
+              position={pageContent[windowKey].position}
             >
-              pageContent[key].content
+              {pageContent[windowKey].content}
             </Window>
           )
         })}
       </div>
       <Taskbar>
         {Object.keys(pageContent).map((key) => {
+          const windowKey = key as PageKey;
           return (
             <TaskbarButton
-              key={key}
-              state={windowStatuses[key]}
-              stateSetter={(newState) => setWindowStatus(key, newState)}
-              image={key}
-              scrollToWindow={() => { scrollToWindow(key) }}
+              key={windowKey}
+              state={windowStatuses[windowKey]}
+              stateSetter={(newState) => setWindowStatus(windowKey, newState)}
+              image={windowKey}
+              scrollToWindow={() => { scrollToWindow(windowKey) }}
             />
           )
         })
         }
       </Taskbar>
+      {/* Links container */}
+      <section className="fixed top-[calc(var(--spacing-pixel-unit)*2)] md:right-[calc(var(--spacing-pixel-unit)*2)] flex md:flex-col gap-pixel-unit">
+        {Object.keys(iconContent).map((key) => {
+          const iconKey = key as IconKey;
+          return (
+            <LinkIcon
+              title={iconContent[iconKey].title}
+              vanityTitle={iconContent[iconKey].vanityTitle}
+              url={iconContent[iconKey].url}
+              key={iconKey}
+            />
+          );
+        })}
+      </section>
     </div>
   );
 }

@@ -7,22 +7,39 @@ interface WindowComponentProps {
     state: WindowState;
     stateSetter: React.Dispatch<React.SetStateAction<WindowState>>;
     children?: React.ReactNode;
+    position?: number;
     ref: (instance: HTMLElement | null) => void;
 }
 
-// TODO add offsets as an argument for non-maximized windows
-export default function Window({ title = "testing title", state, stateSetter, children, ref }: WindowComponentProps) {
+function calcPosition(position: number): React.CSSProperties | undefined {
+    if (position <= 25) {
+        return { alignSelf: 'flex-start', left: `${position}%` };
+    } else if (position > 25 && position < 75) {
+        return { alignSelf: 'center', left: `${position-50}%` };
+    } else if (position >= 75) {
+        return { alignSelf: 'flex-end', right: `${100-position}%` };
+    }
+}
+export default function Window({ title = "testing title", state, stateSetter, children, position, ref }: WindowComponentProps) {
+    let positionStyle: React.CSSProperties;
+    if (position != null) {
+        positionStyle = calcPosition(position) as React.CSSProperties;
+    } else {
+        positionStyle = {};
+    }
+
     return (
         <section
             className={
                 (state === 'maximized') ?
-                    "fixed top-0 left-0 right-0 bottom-[calc(var(--spacing-pixel-unit)*16)]" :
-                    "relative w-fit my-[2em]"
+                    "fixed top-0 left-0 right-0 bottom-[calc(var(--spacing-pixel-unit)*16)] z-10 flex flex-col" :
+                    "relative w-fit max-w-dvw my-[2em] z-1"
             }
             ref={ref}
+            style={(state === 'maximized') ? {} : positionStyle}
         >
             {/* Window Top Bar */}
-            <div className="flex flex-row h-[calc(var(--spacing-pixel-unit)*7)]">
+            <div className="flex flex-row shrink-0 h-[calc(var(--spacing-pixel-unit)*7)]">
 
                 {/* Window Title */}
                 <div
@@ -63,10 +80,10 @@ export default function Window({ title = "testing title", state, stateSetter, ch
 
             {/* Window Bottom / Content Area */}
             <div
-                className="[image-rendering:pixelated] border-t-[calc(var(--spacing-pixel-unit)*12)] border-r-[calc(var(--spacing-pixel-unit)*10)] border-b-[calc(var(--spacing-pixel-unit)*15)] border-l-[calc(var(--spacing-pixel-unit)*4)] min-h-[calc(var(--spacing-pixel-unit)*28)]"
+                className="[image-rendering:pixelated] border-t-[calc(var(--spacing-pixel-unit)*12)] border-r-[calc(var(--spacing-pixel-unit)*10)] border-b-[calc(var(--spacing-pixel-unit)*15)] border-l-[calc(var(--spacing-pixel-unit)*4)] min-h-[calc(var(--spacing-pixel-unit)*28)] flex-1 flex flex-col"
                 style={{ borderImage: "url('/window9slice.png') 12 10 15 4" }}
             >
-                <div className="mt-[calc(var(--spacing-pixel-unit)*-12)] mb-[calc(var(--spacing-pixel-unit)*-11)] min-h-[calc(var(--spacing-pixel-unit)*25)] bg-amber-700">
+                <div className="mt-[calc(var(--spacing-pixel-unit)*-12)] mb-[calc(var(--spacing-pixel-unit)*-11)] min-h-[calc(var(--spacing-pixel-unit)*25)] flex flex-col h-[150%] *:h-full *:pt-1">
                     {children || <p>test content here...</p>}
                 </div>
             </div>

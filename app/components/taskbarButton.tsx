@@ -35,21 +35,17 @@ export default function TaskbarButton({ state, stateSetter, image, scrollToWindo
 
     return (
         <button
-            className="[image-rendering:pixelated] h-[calc(var(--spacing-pixel-unit)*18)] w-[calc(var(--spacing-pixel-unit)*21)] bg-no-repeat bg-contain relative bottom-[calc(var(--spacing-pixel-unit)*9)]"
+            className="[image-rendering:pixelated] h-[calc(var(--spacing-pixel-unit)*18)] w-[calc(var(--spacing-pixel-unit)*21)] bg-no-repeat bg-contain relative top-[calc(var(--spacing-pixel-unit)*4)]"
             style={{ backgroundImage: `url('${buttonImage}')` }}
             onClick={onclick}
         >
             <img
-                className="[image-rendering:pixelated] absolute container"
-                style={{ bottom: `calc(var(--spacing-pixel-unit) * ${offset + 1})` }}
+                className="[image-rendering:pixelated] absolute container w-[calc(var(--spacing-pixel-unit)*19)] left-pixel-unit"
+                style={{ bottom: `calc(var(--spacing-pixel-unit) * ${offset + 2})` }}
                 src={`/taskbarimage${image}.png`}
                 alt={image}
             />
 
         </button>
     )
-
-
-
-
 }

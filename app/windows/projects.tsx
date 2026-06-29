@@ -128,13 +128,8 @@ export default function Projects() {
                                             alt={image.alt}
                                             width={500}
                                             height={500}
-                                            sizes="(max-width: 768px) 50vw, 25vw"
                                             style={{ imageRendering: "auto" }}
                                             className="object-contain w-full h-full"
-                                            // TODO add scroll to thing on click to avoid clipping, then undo the instant animation
-                                            onClick={() => {
-                                                
-                                            }}
                                         />
                                     </Zoom>
                                 </div>

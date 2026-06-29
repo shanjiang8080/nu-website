@@ -53,10 +53,10 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="pb-[calc(var(--spacing-pixel-unit)*32)]">
       {/* Windows Container */}
       <div
-        className="flex flex-col items-center relative top-[calc(var(--spacing-pixel-unit)*32)] md:top-0">
+        className="flex flex-col items-center relative max-md:top-[calc(var(--spacing-pixel-unit)*32)] md:top-0">
         {Object.keys(pageContent).map((key) => {
           const windowKey = key as PageKey;
           if (windowStatuses[windowKey] != 'expanded' && windowStatuses[windowKey] != 'maximized') return null;

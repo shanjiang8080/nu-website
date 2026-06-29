@@ -6,34 +6,43 @@ interface WindowComponentProps {
     title: string;
     state: WindowState;
     stateSetter: React.Dispatch<React.SetStateAction<WindowState>>;
-    children?: React.ReactNode;
-    position?: number;
+    children: React.ReactNode;
+    position: number;
     ref: (instance: HTMLElement | null) => void;
 }
 
-function calcPosition(position: number): React.CSSProperties | undefined {
+function calcPosition(position: number): React.CSSProperties {
+    // alignSelf: 'flex-start', left: `${position}%`
+    // alignSelf: 'center', left: `${position-50}%`
+    // alignSelf: 'flex-end', right: `${100-position}%`
     if (position <= 25) {
-        return { alignSelf: 'flex-start', left: `${position}%` };
-    } else if (position > 25 && position < 75) {
-        return { alignSelf: 'center', left: `${position-50}%` };
+        return { "--left": `${position}%` } as React.CSSProperties;
     } else if (position >= 75) {
-        return { alignSelf: 'flex-end', right: `${100-position}%` };
+        return { "--left": `${position-100}%` } as React.CSSProperties;
     }
+    return { "--left": `${position-50}%` } as React.CSSProperties;
+
+}
+function calcAlignment(position: number): string {
+    // alignSelf: 'flex-start', left: `${position}%`
+    // alignSelf: 'center', left: `${position-50}%`
+    // alignSelf: 'flex-end', right: `${100-position}%`
+    if (position <= 25) {
+        return 'md:self-start'
+    } else if (position >= 75) {
+        return 'md:self-end'
+    }
+    return 'md:self-center'
 }
 export default function Window({ title = "testing title", state, stateSetter, children, position, ref }: WindowComponentProps) {
-    let positionStyle: React.CSSProperties;
-    if (position != null) {
-        positionStyle = calcPosition(position) as React.CSSProperties;
-    } else {
-        positionStyle = {};
-    }
-
+    const positionStyle = calcPosition(position);
+    const positionAlignment = calcAlignment(position);
     return (
         <section
             className={
                 (state === 'maximized') ?
                     "fixed top-0 left-0 right-0 bottom-[calc(var(--spacing-pixel-unit)*16)] z-10 flex flex-col" :
-                    "relative w-fit max-w-dvw my-[2em] z-1"
+                    `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} md:left-(--left,0) md:right-(--right,0)`
             }
             ref={ref}
             style={(state === 'maximized') ? {} : positionStyle}

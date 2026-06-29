@@ -1,0 +1,31 @@
+================ MATERIAL 3 RGBA COLORS ================
+Primary: #A4F657FF
+OnPrimary: #305A00FF
+PrimaryContainer: #67B314FF
+OnPrimaryContainer: #122800FF
+InversePrimary: #3D7100FF
+Secondary: #D7EE66FF
+OnSecondary: #4B5700FF
+SecondaryContainer: #566500FF
+OnSecondaryContainer: #F2FFAFFF
+Tertiary: #FFFCC8FF
+OnTertiary: #636200FF
+TertiaryContainer: #F4F15EFF
+OnTertiaryContainer: #5B5A00FF
+Background: #0C1000FF
+OnBackground: #E4EEAEFF
+Surface: #0C1000FF
+OnSurface: #E4EEAEFF
+SurfaceVariant: #222900FF
+OnSurfaceVariant: #A7B076FF
+SurfaceTint: #A4F657FF
+InverseSurface: #FCFFDDFF
+InverseOnSurface: #343B0DFF
+Error: #F2B8B5FF
+OnError: #601410FF
+ErrorContainer: #8C1D18FF
+OnErrorContainer: #F9DEDCFF
+Outline: #717A45FF
+OutlineVariant: #444C1CFF
+Scrim: #000000FF
+========================================================

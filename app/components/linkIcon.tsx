@@ -24,7 +24,7 @@ export default function LinkIcon({ title, vanityTitle, url }: LinkIconProps) {
                         alt="" />
                 </div>
                 <span
-                    className="relative -top-pixel-unit"
+                    className="relative -top-pixel-unit text-shadow-[1px_1px_2px_black]"
                 >
                     {vanityTitle}
                 </span>

@@ -12,9 +12,6 @@ interface WindowComponentProps {
 }
 
 function calcPosition(position: number): React.CSSProperties {
-    // alignSelf: 'flex-start', left: `${position}%`
-    // alignSelf: 'center', left: `${position-50}%`
-    // alignSelf: 'flex-end', right: `${100-position}%`
     if (position <= 25) {
         return { "--left": `${position}%` } as React.CSSProperties;
     } else if (position >= 75) {
@@ -24,15 +21,12 @@ function calcPosition(position: number): React.CSSProperties {
 
 }
 function calcAlignment(position: number): string {
-    // alignSelf: 'flex-start', left: `${position}%`
-    // alignSelf: 'center', left: `${position-50}%`
-    // alignSelf: 'flex-end', right: `${100-position}%`
     if (position <= 25) {
-        return 'md:self-start'
+        return 'lg:self-start'
     } else if (position >= 75) {
-        return 'md:self-end'
+        return 'lg:self-end'
     }
-    return 'md:self-center'
+    return 'lg:self-center'
 }
 export default function Window({ title = "testing title", state, stateSetter, children, position, ref }: WindowComponentProps) {
     const positionStyle = calcPosition(position);
@@ -40,16 +34,16 @@ export default function Window({ title = "testing title", state, stateSetter, ch
     let windowStyle: string
     switch (state) {
         case 'closed':
-            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} md:left-(--left,0) md:right-(--right,0) hidden`
+            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} lg:left-(--left,0) lg:right-(--right,0) hidden`
             break;
         case 'expanded':
-            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} md:left-(--left,0) md:right-(--right,0)`
+            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} lg:left-(--left,0) lg:right-(--right,0)`
             break;
         case 'maximized':
             windowStyle = "fixed top-0 left-0 right-0 bottom-[calc(var(--spacing-pixel-unit)*16)] z-10 flex flex-col";
             break;
         case 'minimized':
-            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} md:left-(--left,0) md:right-(--right,0) invisible`
+            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} lg:left-(--left,0) lg:right-(--right,0) invisible`
             break;
     }
     return (

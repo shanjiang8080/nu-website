@@ -53,7 +53,7 @@ export default function Home() {
   };
 
   return (
-    <div className="pb-[calc(var(--spacing-pixel-unit)*32)]">
+    <div className="pb-[calc(var(--spacing-pixel-unit)*32)] overflow-x-hidden">
       {/* Windows Container */}
       <div
         className="flex flex-col items-center relative max-md:top-[calc(var(--spacing-pixel-unit)*32)] md:top-0">

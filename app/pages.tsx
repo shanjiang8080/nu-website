@@ -35,7 +35,7 @@ export const pageContent = {
     },
     skills: {
         content: <Skills />,
-        position: 35
+        position: 45
     },
     projects: {
         content: <Projects />,

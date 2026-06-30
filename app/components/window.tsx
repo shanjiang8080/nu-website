@@ -18,9 +18,9 @@ function calcPosition(position: number): React.CSSProperties {
     if (position <= 25) {
         return { "--left": `${position}%` } as React.CSSProperties;
     } else if (position >= 75) {
-        return { "--left": `${position-100}%` } as React.CSSProperties;
+        return { "--left": `${position - 100}%` } as React.CSSProperties;
     }
-    return { "--left": `${position-50}%` } as React.CSSProperties;
+    return { "--left": `${position - 50}%` } as React.CSSProperties;
 
 }
 function calcAlignment(position: number): string {
@@ -37,13 +37,24 @@ function calcAlignment(position: number): string {
 export default function Window({ title = "testing title", state, stateSetter, children, position, ref }: WindowComponentProps) {
     const positionStyle = calcPosition(position);
     const positionAlignment = calcAlignment(position);
+    let windowStyle: string
+    switch (state) {
+        case 'closed':
+            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} md:left-(--left,0) md:right-(--right,0) hidden`
+            break;
+        case 'expanded':
+            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} md:left-(--left,0) md:right-(--right,0)`
+            break;
+        case 'maximized':
+            windowStyle = "fixed top-0 left-0 right-0 bottom-[calc(var(--spacing-pixel-unit)*16)] z-10 flex flex-col";
+            break;
+        case 'minimized':
+            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} md:left-(--left,0) md:right-(--right,0) invisible`
+            break;
+    }
     return (
         <section
-            className={
-                (state === 'maximized') ?
-                    "fixed top-0 left-0 right-0 bottom-[calc(var(--spacing-pixel-unit)*16)] z-10 flex flex-col" :
-                    `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} md:left-(--left,0) md:right-(--right,0)`
-            }
+            className={windowStyle}
             ref={ref}
             style={(state === 'maximized') ? {} : positionStyle}
         >

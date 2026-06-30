@@ -59,7 +59,6 @@ export default function Home() {
         className="flex flex-col items-center relative max-md:top-[calc(var(--spacing-pixel-unit)*32)] md:top-0">
         {Object.keys(pageContent).map((key) => {
           const windowKey = key as PageKey;
-          if (windowStatuses[windowKey] != 'expanded' && windowStatuses[windowKey] != 'maximized') return null;
           return (
             <Window
               title={windowKey.toUpperCase()}

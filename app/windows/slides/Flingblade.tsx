@@ -27,7 +27,7 @@ export const Flingblade: Slide = {
     text: <div
         className="flex flex-col gap-3 text-lg"
     >
-        <p className="text-white md:w-[50ch] font-(family-name:--font-figtree) bg-[#000000AA] p-5 rounded-md">
+        <p className="text-white font-(family-name:--font-figtree) bg-[#000000AA] p-5 rounded-md">
         FlingBlade is a 2D action platformer where you have a multi-functional sword to use to fight enemies and platform. The sword can be thrown, recalled, and used as a platform to stand on and jump off of.
         I was the primary programmer for the project, handling character, sword, and level programming. I also created most of the pixel art.
         </p>

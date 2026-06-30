@@ -27,7 +27,7 @@ export const Anchor: Slide = {
     text: <div
         className="flex flex-col gap-3 text-lg"
     >
-        <p className="text-white md:w-[50ch] font-(family-name:--font-figtree) bg-[#000000AA] p-5 rounded-md">
+        <p className="text-white md:w-[min(50ch, 50%)] font-(family-name:--font-figtree) bg-[#000000AA] p-5 rounded-md">
         This is a 2D precision platformer I&apos;m currently developing, with the central mechanic being the anchor and how it can be used in various ways, like as a grappling hook or to propel yourself upward. It is made using the MonoGame framework in C#, and I am also using an extra framework called Nez to help with aspects like objects and scene management.
         I have a demo of the game <a href="https://shanjiang8080.itch.io/anchor-game" className="underline text-[#4091c5]" target="_blank">available on itch.io</a>.
         </p>

@@ -92,7 +92,7 @@ export default function Window({ title = "testing title", state, stateSetter, ch
                 className="[image-rendering:pixelated] border-t-[calc(var(--spacing-pixel-unit)*12)] border-r-[calc(var(--spacing-pixel-unit)*10)] border-b-[calc(var(--spacing-pixel-unit)*15)] border-l-[calc(var(--spacing-pixel-unit)*4)] min-h-[calc(var(--spacing-pixel-unit)*28)] flex-1 flex flex-col"
                 style={{ borderImage: "url('/window9slice.png') 12 10 15 4" }}
             >
-                <div className="mt-[calc(var(--spacing-pixel-unit)*-12)] mb-[calc(var(--spacing-pixel-unit)*-11)] min-h-[calc(var(--spacing-pixel-unit)*25)] flex flex-col h-[150%] *:h-full">
+                <div className={`mt-[calc(var(--spacing-pixel-unit)*-12)] mb-[calc(var(--spacing-pixel-unit)*-11)] min-h-[calc(var(--spacing-pixel-unit)*25)] flex flex-col h-[150%] *:h-full ${state === 'maximized' ? '*:max-w-full' : ''}`}>
                     {children || <p>test content here...</p>}
                 </div>
             </div>

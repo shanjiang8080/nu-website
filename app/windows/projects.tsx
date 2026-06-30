@@ -54,7 +54,7 @@ export default function Projects() {
     };
 
     return (
-        <div className="flex flex-col bg-[#f8f9fa] border border-gray-300 shadow-lg overflow-hidden font-sans select-none w-full">
+        <div className="flex flex-col bg-[#f8f9fa] border border-gray-300 shadow-lg font-sans select-none w-full overflow-y-scroll overflow-x-hidden">
 
             {/* Top Toolbar */}
             <div className="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 text-sm text-gray-700">
@@ -85,10 +85,10 @@ export default function Projects() {
             </div>
 
             {/* Main Workspace Area */}
-            <div className="flex flex-1 md:flex-row flex-col overflow-hidden bg-[#ebebeb]">
+            <div className="flex flex-1 md:flex-row flex-col bg-[#ebebeb]">
 
                 {/* Left Sidebar (Slide Thumbnails) */}
-                <div className="bg-white border-r border-gray-200 overflow-y-auto p-3 flex md:flex-col flex-row md:space-y-3 max-md:space-x-3 md:w-auto max-md:w-full">
+                <div className="bg-white border-r border-gray-200 overflow-y-auto p-3 flex md:flex-col flex-row md:space-y-3 max-md:space-x-3 md:min-w-fit max-md:w-full">
                     {activeSlides.map((slide, index) => (
                         <div
                             key={index}
@@ -114,7 +114,7 @@ export default function Projects() {
                 </div>
                 {/* Center Canvas (The "Slide") */}
                 <div className="flex-1 flex items-center md:p-8 p-1.5 overflow-visible select-text md:max-w-[80vw]">
-                    <div className={`relative overflow-hidden border border-gray-400 ${activeSlide.backgroundColor || "bg-white"} flex w-full max-md:flex-col md:flex-row justify-center md:aspect-video items-center md:h-[75vh]`}>
+                    <div className={`relative overflow-hidden border border-gray-400 ${activeSlide.backgroundColor || "bg-white"} flex w-full max-lg:flex-col lg:flex-row justify-center lg:aspect-video items-center lg:max-h-[75vh]`}>
                         {activeSlide.overlayUrlLeft ? (
                             <div
                                 className="pointer-events-none absolute inset-y-0 left-0 w-full bg-no-repeat bg-left"
@@ -126,7 +126,7 @@ export default function Projects() {
                             />
                         ) : null}
 
-                        <div className="relative z-10 flex flex-col p-12 justify-start box-border gap-2 md:aspect-video">
+                        <div className="relative z-10 flex flex-col p-12 justify-start box-border gap-2 lg:w-[50%]">
                             {activeSlide.title}
                             {activeSlide.text}
                         </div>

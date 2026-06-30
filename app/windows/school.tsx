@@ -8,7 +8,6 @@ import {
     Shapes,
     Upload,
     Layers,
-    Sparkles,
     Share2,
     ZoomIn
 } from 'lucide-react';
@@ -74,7 +73,7 @@ export default function School() {
                 </aside>
 
                 {/* Central Canvas Container */}
-                <main className="flex-1 md:p-8 max-md:p-1 flex items-center justify-center relative bg-[#f8fafc]">
+                <main className="flex-1 md:p-8 max-md:p-1 flex items-center justify-center relative bg-[#f8fafc] overflow-scroll">
 
                     {/* The Inner "Canvas" Workspace */}
                     <div className="w-full max-w-5xl bg-white shadow-xl border border-gray-200 rounded-sm flex flex-col relative">

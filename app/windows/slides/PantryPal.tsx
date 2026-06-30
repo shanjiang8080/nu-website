@@ -27,7 +27,7 @@ export const PantryPal: Slide = {
     text: <div
         className="flex flex-col gap-3 text-lg"
     >
-        <p className="text-black md:w-[50ch] font-(family-name:--font-figtree)">
+        <p className="text-black font-(family-name:--font-figtree)">
             This is a React web-app I worked on as part of a school group project. Input the ingredients you have and get recipe suggestions. The app comes with inventory tracking, filtering based on diet, and shopping list functionality. I worked on endpoints and components for inventory management, as well as set up unit testing with Jest.
         </p>
     </div>,

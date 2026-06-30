@@ -31,7 +31,7 @@ export const pageContent = {
     },
     school: {
         content: <School />,
-        position: 25
+        position: 50
     },
     skills: {
         content: <Skills />,

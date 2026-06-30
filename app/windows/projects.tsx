@@ -7,6 +7,8 @@ import '../../public/medium_zoom_styles.css';
 import { Collog } from './slides/Collog';
 import { PantryPal } from './slides/PantryPal';
 import { Boorish } from './slides/Boorish';
+import { Anchor } from './slides/Anchor';
+import { Flingblade } from './slides/Flingblade';
 
 interface ImageInfo {
     url: string
@@ -32,13 +34,16 @@ export interface Slide {
 const slides: Slide[] = [
     Collog,
     PantryPal,
-    Boorish
+    Boorish,
+    Anchor,
+    Flingblade
 ];
 
 export default function Projects() {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const activeSlides = slides; // Ensure 'slides' is imported or defined in your scope
+    const activeSlide = activeSlides[currentSlide];
 
     const nextSlide = () => {
         if (currentSlide < activeSlides.length - 1) setCurrentSlide(currentSlide + 1);
@@ -94,7 +99,7 @@ export default function Projects() {
                             <span className="text-xs font-medium text-gray-400 w-3 text-right mt-1">{index + 1}</span>
 
                             <div className={`relative flex-1 ${slide.backgroundColor || "bg-white"} border border-gray-300 rounded p-1.5 shadow-sm overflow-hidden flex flex-col justify-between`}>
-                                <span className="absolute top-1.5 left-1.5 text-black font-semibold bg-[#ffffffcc] rounded-4xl pl-2 pr-2 z-10">
+                                <span className="absolute top-1.5 left-1.5 text-black font-semibold bg-[#ffffffcc] rounded-[1em] pl-2 pr-2 z-10">
                                     {slide.simpleTitle}
                                 </span>
 
@@ -109,15 +114,26 @@ export default function Projects() {
                 </div>
                 {/* Center Canvas (The "Slide") */}
                 <div className="flex-1 flex items-center md:p-8 p-1.5 overflow-visible select-text md:max-w-[80vw]">
-                    <div className={`border border-gray-400 ${activeSlides[currentSlide].backgroundColor || "bg-white"} flex w-full max-md:flex-col md:flex-row justify-center md:aspect-video items-center md:h-[75vh]`}>
-                        <div className="relative flex flex-col p-12 justify-start box-border gap-2 md:aspect-video">
-                            {activeSlides[currentSlide].title}
-                            {activeSlides[currentSlide].text}
+                    <div className={`relative overflow-hidden border border-gray-400 ${activeSlide.backgroundColor || "bg-white"} flex w-full max-md:flex-col md:flex-row justify-center md:aspect-video items-center md:h-[75vh]`}>
+                        {activeSlide.overlayUrlLeft ? (
+                            <div
+                                className="pointer-events-none absolute inset-y-0 left-0 w-full bg-no-repeat bg-left"
+                                style={{
+                                    backgroundImage: `url(${activeSlide.overlayUrlLeft})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'left center',
+                                }}
+                            />
+                        ) : null}
+
+                        <div className="relative z-10 flex flex-col p-12 justify-start box-border gap-2 md:aspect-video">
+                            {activeSlide.title}
+                            {activeSlide.text}
                         </div>
 
                         {/* Image Container */}
-                        <div className={`md:h-full w-full md:max-w-[50%] p-4 grid ${(activeSlides[currentSlide].imagesDisplayHorizontally ? "grid-flow-col" : "grid-flow-row")} gap-4 auto-rows-fr justify-items-center items-center`}>
-                            {activeSlides[currentSlide]?.images?.map((image) => (
+                        <div className={`relative z-10 md:h-full w-full md:max-w-[50%] p-4 grid ${(activeSlide.imagesDisplayHorizontally ? "grid-flow-col" : "grid-flow-row")} gap-4 auto-rows-fr justify-items-center items-center`}>
+                            {activeSlide?.images?.map((image) => (
                                 <div
                                     className="relative w-full h-full flex items-center justify-center **:h-full **:w-full"
                                     key={image.url}

@@ -38,7 +38,7 @@ export const Boorish: Slide = {
         className="flex flex-col gap-3 text-lg"
     >
         <div className="border-5 border-b-20 p-5 bg-[#E2C6C6] border-[#fff8f1] shadow-md">
-            <p className="text-[#3B1E0D]">
+            <p className="text-[#3B1E0D] font-(family-name:--font-figtree)">
                 This is an Django-based web-app that allows users to upload and tag images, similar to a booru.
             </p>
         </div>

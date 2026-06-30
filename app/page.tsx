@@ -90,7 +90,7 @@ export default function Home() {
         }
       </Taskbar>
       {/* Links container */}
-      <section className="fixed top-[calc(var(--spacing-pixel-unit)*2)] md:right-[calc(var(--spacing-pixel-unit)*2)] flex md:flex-col gap-pixel-unit">
+      <section className="md:fixed max-md:absolute top-[calc(var(--spacing-pixel-unit)*2)] md:right-[calc(var(--spacing-pixel-unit)*2)] flex md:flex-col gap-pixel-unit">
         {Object.keys(iconContent).map((key) => {
           const iconKey = key as IconKey;
           return (

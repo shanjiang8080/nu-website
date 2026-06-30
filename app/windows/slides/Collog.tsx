@@ -33,11 +33,11 @@ export const Collog: Slide = {
     text: <div
         className="flex flex-col gap-3 text-lg"
     >
-        <p className="w-[min(50ch, 100%)]">
+        <p className="md:w-[50ch] font-(family-name:--font-figtree)">
             This is an Android app that aggregates libraries from Steam, Epic Games, GOG, and Itch.io, combining them into one library.
         </p>
         <h2 className="font-semibold text-lg bg-[#D7EE66] rounded-xl p-1 pl-2 pr-2 w-fit text-[#4B5700] font-(family-name:--font-figtree)">Features</h2>
-        <ul className="list-disc list-inside">
+        <ul className="list-disc list-inside *:font-(family-name:--font-figtree)">
             <li>Importing games</li>
             <li>Custom covers</li>
             <li>Playtime</li>

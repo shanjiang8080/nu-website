@@ -74,7 +74,7 @@
   background-color: rgba(0, 0, 0, 0);
 }
 [data-rmiz-modal-overlay="visible"] {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 1);
 }
 [data-rmiz-modal-content] {
   position: relative;

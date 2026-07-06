@@ -10,8 +10,8 @@ export const PantryPal: Slide = {
             <div
                 className="flex flex-col-reverse"
             >
-                <h1 className="text-[2em] text-white font-bold font-(family-name:--font-figtree) cursor-text">Collog</h1>
-                <h2 className="text-[1em] text-white font-semibold font-(family-name:--font-figtree) cursor-text md:text-nowrap">Game Library Aggregator</h2>
+                <h1 className="text-[2em] text-white font-bold font-(family-name:--font-figtree) cursor-text">PantryPal</h1>
+                <h2 className="text-[1em] text-white font-semibold font-(family-name:--font-figtree) cursor-text md:text-nowrap">Recipe/Pantry Management</h2>
             </div>
         </div>
         <div className="bg-[#ff8040] flex flex-row rounded-2xl p-5 inline-fit gap-3 items-center">

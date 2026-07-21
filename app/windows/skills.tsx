@@ -66,7 +66,7 @@ export default function Skills() {
                 </div>
             </div>
 
-            <div className="flex items-center space-x-2 bg-[#1e1e1e] p-2 border-b border-gray-800">
+            <div aria-hidden className="flex items-center space-x-2 bg-[#1e1e1e] p-2 border-b border-gray-800">
                 <div className="flex space-x-1.5 px-2">
                     <ArrowLeft className="text-gray-200" />
                     <ArrowRight className="text-gray-200" />
@@ -79,10 +79,11 @@ export default function Skills() {
             <div className="min-h-48 bg-[#1e1e1e] flex flex-col items-center justify-center p-6 text-center">
                 {isDefaultTabSelected ? (
                     <div className="space-y-2">
-                        <h3 className="text-gray-400 font-medium text-sm">Skills Opened in New Tabs</h3>
-                        <p className="text-gray-600 text-xs leading-relaxed">
+                        <h3 aria-hidden className="text-gray-400 font-medium text-sm">Skills Opened in New Tabs</h3>
+                        <p aria-hidden className="text-gray-600 text-xs leading-relaxed">
                             Tabs show skills and projects I used them with.
                         </p>
+                        <p className="sr-only">Click the preceding buttons to show projects I demonstrated and learned my skills with.</p>
                     </div>
                 ) : (
                     <div className="w-full text-left space-y-3">

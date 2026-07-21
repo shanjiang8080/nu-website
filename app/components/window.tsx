@@ -63,17 +63,20 @@ export default function Window({ title = "testing title", state, stateSetter, ch
                     <PixelText text={title} />
                 </div>
 
-                {/* Window Buttons TODO */}
+                {/* Window Buttons */}
                 <div
+                    aria-hidden
                     className="h-[calc(var(--spacing-pixel-unit)*7)] w-[calc(var(--spacing-pixel-unit)*24)] bg-no-repeat bg-contain [image-rendering:pixelated]"
                     style={{ backgroundImage: "url('/windowbuttons.png')" }}
                 >
                     <button
+                        aria-hidden
                         className="h-[calc(var(--spacing-pixel-unit)*7)] w-[calc(var(--spacing-pixel-unit)*9)]"
                         onClick={() => { stateSetter('minimized'); console.log("minimize") }}
                     >
                     </button>
                     <button
+                        aria-hidden
                         className="h-[calc(var(--spacing-pixel-unit)*7)] w-[calc(var(--spacing-pixel-unit)*6)]"
                         onClick={() => {
                             if (state === 'maximized') {
@@ -85,6 +88,7 @@ export default function Window({ title = "testing title", state, stateSetter, ch
                     >
                     </button>
                     <button
+                        aria-hidden
                         className="h-[calc(var(--spacing-pixel-unit)*7)] w-[calc(var(--spacing-pixel-unit)*9)]"
                         onClick={() => { stateSetter('closed'); console.log("close") }}
                     >

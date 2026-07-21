@@ -15,10 +15,12 @@ export default function LinkIcon({ title, vanityTitle, url }: LinkIconProps) {
                     className="p-[calc(var(--spacing-pixel-unit))]"
                 >
                     <img
+                        aria-hidden
                         className="[image-rendering:pixelated] w-[calc(var(--spacing-pixel-unit)*16)] h-[calc(var(--spacing-pixel-unit)*16)]"
                         src={`/icon_${title.toLowerCase()}.png`}
                         alt={title} />
                     <img
+                        aria-hidden
                         src="/shortcut.png"
                         className="[image-rendering:pixelated] w-[calc(var(--spacing-pixel-unit)*4)] h-[calc(var(--spacing-pixel-unit)*4)] relative bottom-[calc(var(--spacing-pixel-unit)*3)]"
                         alt="" />

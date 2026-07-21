@@ -29,7 +29,7 @@ export const Boorish: Slide = {
             </div>
         </div>
         <div className="bg-[url(/projects/note.svg)] p-5 inline-fit gap-3">
-            <a href="https://github.com/shanjiang8080/Boorish" target="_blank">
+            <a aria-label="Link to GitHub" href="https://github.com/shanjiang8080/Boorish" target="_blank">
                 <Link className="w-auto h-auto text-[#1cc533] min-w-[2em]" />
             </a>
         </div>

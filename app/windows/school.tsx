@@ -20,7 +20,7 @@ export default function School() {
         <div className="w-full h-screen flex flex-col bg-[#f3f4f6] text-[#0f172a] font-sans overflow-hidden min-w-[40vw]">
 
             {/* Top Navigation Bar */}
-            <header className="h-14 bg-linear-to-r from-purple-600 to-blue-500 px-4 flex items-center justify-between pointer-events-none">
+            <header aria-hidden className="h-14 bg-linear-to-r from-purple-600 to-blue-500 px-4 flex items-center justify-between pointer-events-none">
                 <div className="flex items-center gap-4">
                     <Menu className="w-5 h-5 text-gray-100" />
                     <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">My Education</span>
@@ -45,7 +45,7 @@ export default function School() {
             <div className="flex-1 flex overflow-hidden md:flex-row max-md:flex-col">
 
                 {/* Left Toolbar */}
-                <aside className="md:w-20 bg-white border-r border-gray-200 flex md:flex-col max-md:flex-row items-center py-4 gap-6 pointer-events-none h-fit *:pl-2 *:pr-2">
+                <aside aria-hidden className="md:w-20 bg-white border-r border-gray-200 flex md:flex-col max-md:flex-row items-center py-4 gap-6 pointer-events-none h-fit *:pl-2 *:pr-2">
                     <div className="flex flex-col items-center gap-1 text-purple-600">
                         <LayoutTemplate className="w-5 h-5" />
                         <span className="text-[10px] font-medium">Templates</span>
@@ -91,7 +91,7 @@ export default function School() {
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center p-5 md:flex-row max-md:flex-col-reverse gap-5">
-                                    <Image src="utm_graphic.svg" alt="Education graphic" width={300} height={500} />
+                                    <Image aria-hidden src="utm_graphic.svg" alt="Education graphic" width={300} height={500} />
                                     <p className="font-(family-name:--font-figtree) max-w-[50ch]">
                                         I am currently a third year Computer Science major at the University of Toronto Mississauga. My CGPA is currently 3.8. While I have CS as my major subject, I&apos;m also taking minors in Statistics and Game Studies.
                                     </p>

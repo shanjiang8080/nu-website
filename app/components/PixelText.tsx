@@ -46,6 +46,7 @@ export default function PixelText({ text }: PixelTextProps) {
   return (
     <canvas 
       ref={canvasRef} 
+      aria-label={text}
       className="[image-rendering:pixelated]"
       style={{
         width: `calc(((${text.length} * 4) - 1) * var(--spacing-pixel-unit))`,

@@ -19,7 +19,7 @@ export const Anchor: Slide = {
             <h1 className="md:text-[1em] text-[#e2eff3] font-bold font-(family-name:--font-figtree) cursor-text text-nowrap">Since 2023</h1>
         </div>
         <div className="bg-[#3e91c8] flex flex-row rounded-md p-5 inline-fit gap-3">
-            <a href="https://shanjiang8080.itch.io/anchor-game" target="_blank">
+            <a aria-label="Link to Itch.io" href="https://shanjiang8080.itch.io/anchor-game" target="_blank">
                 <Link className="w-auto h-auto text-[#e2eff3] min-w-[2em]" />
             </a>
         </div>

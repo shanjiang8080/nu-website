@@ -18,14 +18,14 @@ export const Collog: Slide = {
         <div className="bg-[#D7EE66] flex flex-row rounded-2xl p-5 inline-fit gap-3">
             <Clock className="w-auto h-auto text-[#4B5700] min-w-[2em]" />
             <div
-                className="flex flex-col-reverse"
+                className="flex flex-col"
             >
-                <h1 className="md:text-[1em] text-[#4B5700] font-bold font-(family-name:--font-figtree) cursor-text text-nowrap">Summer 2025</h1>
                 <h2 className="text-[0.75em] text-[#4B5700] font-semibold font-(family-name:--font-figtree) cursor-text">Since</h2>
+                <h1 className="md:text-[1em] text-[#4B5700] font-bold font-(family-name:--font-figtree) cursor-text text-nowrap">Summer 2025</h1>
             </div>
         </div>
         <div className="bg-[#D7EE66] flex flex-row rounded-2xl p-5 inline-fit gap-3">
-            <a href="https://github.com/shanjiang8080/Collectalogger" target="_blank">
+            <a aria-label="Link to GitHub" href="https://github.com/shanjiang8080/Collectalogger" target="_blank">
                 <Link className="w-auto h-auto text-[#4B5700] min-w-[2em]" />
             </a>
         </div>

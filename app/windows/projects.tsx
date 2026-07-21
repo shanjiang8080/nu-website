@@ -42,7 +42,7 @@ const slides: Slide[] = [
 export default function Projects() {
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    const activeSlides = slides; // Ensure 'slides' is imported or defined in your scope
+    const activeSlides = slides;
     const activeSlide = activeSlides[currentSlide];
 
     const nextSlide = () => {
@@ -57,7 +57,7 @@ export default function Projects() {
         <div className="flex flex-col bg-[#f8f9fa] border border-gray-300 shadow-lg font-sans select-none w-full overflow-y-scroll overflow-x-hidden">
 
             {/* Top Toolbar */}
-            <div className="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 text-sm text-gray-700">
+            <div aria-hidden className="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 text-sm text-gray-700">
                 <div className="flex items-center space-x-4">
                     <h2 className="font-bold text-lg">My Projects</h2>
                     <div className="h-4 w-px bg-gray-300"></div>
@@ -76,7 +76,7 @@ export default function Projects() {
             </div>
 
             {/* Secondary Action Bar */}
-            <div className="flex items-center space-x-3 px-4 py-1.5 bg-gray-50 border-b border-gray-200">
+            <div aria-hidden className="flex items-center space-x-3 px-4 py-1.5 bg-gray-50 border-b border-gray-200">
                 <Layout size={16} className="text-gray-500" />
                 <Type size={16} className="text-gray-500" />
                 <ImageIcon size={16} className="text-gray-500" />
@@ -96,17 +96,18 @@ export default function Projects() {
                             className={`group flex items-start space-x-2 p-1 rounded transition ${currentSlide === index ? 'bg-blue-50 ring-2 ring-blue-500' : ''
                                 }`}
                         >
-                            <span className="text-xs font-medium text-gray-400 w-3 text-right mt-1">{index + 1}</span>
+                            <span aria-hidden className="text-xs font-medium text-gray-400 w-3 text-right mt-1">{index + 1}</span>
 
                             <div className={`relative flex-1 ${slide.backgroundColor || "bg-white"} border border-gray-300 rounded p-1.5 shadow-sm overflow-hidden flex flex-col justify-between`}>
-                                <span className="absolute top-1.5 left-1.5 text-black font-semibold bg-[#ffffffcc] rounded-[1em] pl-2 pr-2 z-10">
+                                <span role="button" className="absolute top-1.5 left-1.5 text-black font-semibold bg-[#ffffffcc] rounded-[1em] pl-2 pr-2 z-10">
                                     {slide.simpleTitle}
                                 </span>
 
                                 <img
+                                    aria-hidden
                                     src={slide.iconUrl}
                                     className="[image-rendering:pixelated] w-[calc(var(--spacing-pixel-unit)*22)] h-[calc(var(--spacing-pixel-unit)*22)] max-w-fit"
-                                    alt={`${slide.title} icon`}
+                                    alt={`${slide.simpleTitle} icon`}
                                 />
                             </div>
                         </div>
@@ -156,7 +157,7 @@ export default function Projects() {
             </div>
 
             {/* Bottom Status Bar / Navigation */}
-            <div className="flex items-center justify-between px-4 py-1.5 bg-white border-t border-gray-200 text-xs text-gray-500">
+            <div aria-hidden className="flex items-center justify-between px-4 py-1.5 bg-white border-t border-gray-200 text-xs text-gray-500">
                 <div>
                     Slide {currentSlide + 1} of {activeSlides.length}
                 </div>

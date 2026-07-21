@@ -35,6 +35,7 @@ export default function TaskbarButton({ state, stateSetter, image, scrollToWindo
 
     return (
         <button
+            aria-hidden
             className="[image-rendering:pixelated] h-[calc(var(--spacing-pixel-unit)*18)] w-[calc(var(--spacing-pixel-unit)*21)] bg-no-repeat bg-contain relative top-[calc(var(--spacing-pixel-unit)*4)]"
             style={{ backgroundImage: `url('${buttonImage}')` }}
             onClick={onclick}

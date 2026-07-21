@@ -19,7 +19,7 @@ export const Flingblade: Slide = {
             <h1 className="md:text-[1em] text-[#dff6f5] font-bold font-(family-name:--font-figtree) cursor-text text-nowrap">March-April 2025</h1>
         </div>
         <div className="bg-[#a0938e] flex flex-row rounded-md p-5 inline-fit gap-3">
-            <a href="https://shanjiang8080.itch.io/flingblade" target="_blank">
+            <a aria-label="Link to Itch.io" href="https://shanjiang8080.itch.io/flingblade" target="_blank">
                 <Link className="w-auto h-auto text-[#dff6f5] min-w-[2em]" />
             </a>
         </div>

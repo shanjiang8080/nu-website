@@ -20,13 +20,16 @@ export default function Shell() {
             >
                 Welcome to...
             </p>
+            <p className="sr-only">Shan Jiang's website!</p>
             <p
+                aria-hidden
                 className="text-transparent bg-clip-text font-mono text-[min(1em,calc((100vw-14*var(--spacing-pixel-unit))/42))] whitespace-break-spaces font-bold"
                 style={{ backgroundImage: "linear-gradient(30deg,rgba(129, 101, 184, 1) 0%, rgba(174, 219, 230, 1) 50%, rgba(255, 254, 224, 1) 100%)" }}
             >
                 {art}
             </p>
             <p
+                aria-hidden
                 className="text-white font-mono whitespace-break-spaces font-bold"
             >
                 guest $ {shellBlink ? "█" : " "}

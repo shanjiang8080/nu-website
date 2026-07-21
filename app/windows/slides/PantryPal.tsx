@@ -19,7 +19,7 @@ export const PantryPal: Slide = {
             <h1 className="md:text-[1em] text-white font-bold font-(family-name:--font-figtree) cursor-text text-nowrap">Jan-May 2026</h1>
         </div>
         <div className="bg-[#ff8040] flex flex-row rounded-2xl p-5 inline-fit gap-3">
-            <a href="https://github.com/TChin1010/PantryPal" target="_blank">
+            <a aria-label="Link to GitHub" href="https://github.com/TChin1010/PantryPal" target="_blank">
                 <Link className="w-auto h-auto text-white min-w-[2em]" />
             </a>
         </div>

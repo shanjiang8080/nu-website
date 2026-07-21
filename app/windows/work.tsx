@@ -72,8 +72,8 @@ function WorkExperienceCard({ jobTitle, company, duration, description, logo }: 
 export default function Work() {
     return (
         <div className="w-full mx-auto border border-gray-300 shadow-2xl bg-[#f3f2f1] font-sans flex flex-col h-187.5 overflow-hidden">
-            {/* 2. Ribbon Tabs */}
-            <div className="border-b border-gray-200 pt-2 flex text-xs text-gray-700 select-none relative left-5">
+            {/* Ribbon Tabs */}
+            <div aria-hidden className="border-b border-gray-200 pt-2 flex text-xs text-gray-700 select-none relative left-5">
                 <span className="bg-[#185abd] text-white px-3 py-1 font-medium">Home</span>
                 <span className="hover:bg-gray-100 px-3 py-1">Insert</span>
                 <span className="hover:bg-gray-100 px-3 py-1">Layout</span>
@@ -82,8 +82,8 @@ export default function Work() {
                 <span className="hover:bg-gray-100 px-3 py-1">View</span>
             </div>
 
-            {/* 3. Ribbon Toolbar (The Buttons) */}
-            <div className="bg-white border-b border-gray-300 p-2 flex items-center space-x-4 text-xs text-gray-600 shadow-sm select-none overflow-hidden">
+            {/* Ribbon Toolbar (The Buttons) */}
+            <div aria-hidden className="bg-white border-b border-gray-300 p-2 flex items-center space-x-4 text-xs text-gray-600 shadow-sm select-none overflow-hidden">
                 {/* Clipboard Group */}
                 <div className="flex items-center space-x-2 border-r border-gray-200 pr-3">
                     <div className="flex flex-col items-center justify-center p-1 hover:bg-gray-100  w-12">
@@ -127,7 +127,7 @@ export default function Work() {
                 </div>
             </div>
 
-            {/* 4. Scrollable Workspace */}
+            {/* Scrollable Workspace */}
             <div className="flex-1 overflow-y-auto overflow-x-hidden md:p-8 p-1.5 flex justify-center items-start bg-[#f3f2f1] selection:bg-blue-200">
 
                 {/* Centered Word Page */}
@@ -149,8 +149,8 @@ export default function Work() {
 
             </div>
 
-            {/* 5. Bottom Status Bar */}
-            <div className="bg-[#f3f2f1] border-t border-gray-300 px-4 py-1 flex justify-between items-center text-xs text-gray-600 select-none overflow-hidden">
+            {/* Bottom Status Bar */}
+            <div aria-hidden className="bg-[#f3f2f1] border-t border-gray-300 px-4 py-1 flex justify-between items-center text-xs text-gray-600 select-none overflow-hidden">
                 <div className="flex space-x-4">
                     <span>Page 1 of 1</span>
                     <span>234 words</span>

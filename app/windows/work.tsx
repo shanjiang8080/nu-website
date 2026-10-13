@@ -13,6 +13,13 @@ interface WorkSection {
 
 const workExperience: WorkSection[] = [
     {
+        jobTitle:"Software Developer Intern",
+        company:"Data on the Spot",
+        duration:"July - October 2026",
+        description:"At this position, I was responsible for implementing several core features in the company's voting software. My three key contributions were as follows: First, I implemented user-facing internationalization using the General Translation framework, creating and leveraging an AI skill file to make future translation efforts easy. Second, I created a view for observers so they can view current and closed ballots, queues, and Q&A questions and responses. The view is customizable such that users can focus on one or can display them in a grid. Finally, I implemented customizable notification functionality, where users can get notified of actions like ballots ending soon or Q&A questions being answered, depending on admin configuration.",
+        logo:"/workplaces/dots.png"
+    },
+    {
         jobTitle:"AI Trainer",
         company:"DataAnnotation",
         duration:"May - August 2025",

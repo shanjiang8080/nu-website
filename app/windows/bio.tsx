@@ -4,10 +4,10 @@ export default function Bio() {
   // Dummy text split into lines
   const [text] = useState(
     `
-    I'm a third-year computer-science student currently working at 
-    Data On The Spot, with experience in full-stack development, automation, 
-    and server operation. I'm also taking a game studies minor and am making 
-    my own game. Finally, I like making pixel-art! As you can clearly see.
+    I'm a third-year computer-science student currently open to work, with 
+    experience in full-stack development, automation, and server operation. 
+    I'm also taking a game studies minor and am making my own game. 
+    Finally, I like making pixel-art! As you can clearly see.
     
     This website tells you all I want you to know about me, 
     including my skills, projects, work experience, and whatever else.

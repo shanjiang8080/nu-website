@@ -46,11 +46,15 @@ export const Boorish: Slide = {
     images: [
         {
             url: '/projects/boorish_1.png',
-            alt: 'Boorish home screen showing photos and tags'
+            alt: 'Boorish home screen showing photos and tags',
+            width: 1136,
+            height: 716
         },
         {
             url: '/projects/boorish_2.png',
-            alt: 'Boorish detail view'
+            alt: 'Boorish detail view',
+            width: 1138,
+            height: 846
         }
     ],
     iconUrl: '/projects/boorish.png',

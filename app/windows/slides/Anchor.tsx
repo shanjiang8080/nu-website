@@ -35,11 +35,15 @@ export const Anchor: Slide = {
     images: [
         {
             url: '/projects/anchor_1.png',
-            alt: 'Anchor Game screenshot showing the main character overlooking an edge'
+            alt: 'Anchor Game screenshot showing the main character overlooking an edge',
+            width: 1442,
+            height: 809
         },
         {
             url: '/projects/anchor_2.png',
-            alt: 'Anchor Game screenshot showing the main character hanging from a rope tethered to an anchor with a nearby red-shaped collectible'
+            alt: 'Anchor Game screenshot showing the main character hanging from a rope tethered to an anchor with a nearby red-shaped collectible',
+            width: 1442,
+            height: 809
         }
     ],
     iconUrl: '/projects/anchor.png',

@@ -35,11 +35,15 @@ export const Flingblade: Slide = {
     images: [
         {
             url: '/projects/flingblade_1.png',
-            alt: 'Flingblade screenshot showing the main character holding a sword with floating collectable coins in the air'
+            alt: 'Flingblade screenshot showing the main character holding a sword with floating collectable coins in the air',
+            width: 1358,
+            height: 1080
         },
         {
             url: '/projects/flingblade_2.png',
-            alt: 'Flingblade screenshot showing the main character overlooking an edge with the sword embedded in a wall'
+            alt: 'Flingblade screenshot showing the main character overlooking an edge with the sword embedded in a wall',
+            width: 1230,
+            height: 1035
         }
     ],
     iconUrl: '/projects/knight.png',

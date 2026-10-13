@@ -13,6 +13,8 @@ import { Flingblade } from './slides/Flingblade';
 interface ImageInfo {
     url: string
     alt: string
+    width: number
+    height: number
 }
 
 export interface Slide {
@@ -115,7 +117,7 @@ export default function Projects() {
                 </div>
                 {/* Center Canvas (The "Slide") */}
                 <div className="flex-1 flex items-center md:p-8 p-1.5 overflow-visible select-text md:max-w-[80vw]">
-                    <div className={`relative overflow-hidden border border-gray-400 ${activeSlide.backgroundColor || "bg-white"} flex w-full max-lg:flex-col lg:flex-row justify-center lg:aspect-video items-center lg:max-h-[75vh]`}>
+                    <div className={`relative overflow-hidden border border-gray-400 ${activeSlide.backgroundColor || "bg-white"} flex w-full max-lg:flex-col lg:flex-row justify-center lg:aspect-video lg:min-w-[calc(75vh*16/9)] items-center lg:max-h-[75vh]`}>
                         {activeSlide.overlayUrlLeft ? (
                             <div
                                 className="pointer-events-none absolute inset-y-0 left-0 w-full bg-no-repeat bg-left"
@@ -136,15 +138,16 @@ export default function Projects() {
                         <div className={`relative z-10 md:h-full w-full md:max-w-[50%] p-4 grid ${(activeSlide.imagesDisplayHorizontally ? "grid-flow-col" : "grid-flow-row")} gap-4 auto-rows-fr justify-items-center items-center`}>
                             {activeSlide?.images?.map((image) => (
                                 <div
-                                    className="relative w-full h-full flex items-center justify-center **:h-full **:w-full"
+                                    className="relative w-full h-full flex items-center justify-center **:h-full **:w-full lg:[aspect-ratio:var(--ar)] lg:min-w-0 lg:w-auto"
+                                    style={{ ["--ar" as string]: `${image.width} / ${image.height}` }}
                                     key={image.url}
                                 >
                                     <Zoom>
                                         <Image
                                             src={image.url}
                                             alt={image.alt}
-                                            width={500}
-                                            height={500}
+                                            width={image.width}
+                                            height={image.height}
                                             style={{ imageRendering: "auto" }}
                                             className="object-contain w-full h-full"
                                         />

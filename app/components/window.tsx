@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PixelText from './PixelText';
 import { WindowState } from '../types/windowState';
 
@@ -29,6 +29,16 @@ function calcAlignment(position: number): string {
     return 'lg:self-center'
 }
 export default function Window({ title = "testing title", state, stateSetter, children, position, ref }: WindowComponentProps) {
+    // Zoomable images (react-medium-image-zoom) render in a <dialog> portal on <body>,
+    // which stays visible regardless of this window being hidden. Close it on minimize/close.
+    useEffect(() => {
+        if (state === 'minimized' || state === 'closed') {
+            document
+                .querySelectorAll('[data-rmiz-portal] dialog[data-rmiz-modal][open]')
+                .forEach((dialog) => { (dialog as HTMLDialogElement).close(); });
+        }
+    }, [state]);
+
     const positionStyle = calcPosition(position);
     const positionAlignment = calcAlignment(position);
     let windowStyle: string
@@ -43,7 +53,10 @@ export default function Window({ title = "testing title", state, stateSetter, ch
             windowStyle = "fixed top-0 left-0 right-0 bottom-[calc(var(--spacing-pixel-unit)*16)] z-10 flex flex-col";
             break;
         case 'minimized':
-            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} lg:left-(--left,0) lg:right-(--right,0) invisible`
+            // `invisible` handles descendants normally, but zoomable images carry an
+            // inline `visibility: visible` (react-medium-image-zoom) that overrides it;
+            // opacity-0 hides the subtree entirely, pointer-events-none keeps it inert.
+            windowStyle = `relative w-fit max-w-dvw my-[2em] z-1 ${positionAlignment} lg:left-(--left,0) lg:right-(--right,0) invisible opacity-0 pointer-events-none`
             break;
     }
     return (

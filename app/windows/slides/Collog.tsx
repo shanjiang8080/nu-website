@@ -49,11 +49,15 @@ export const Collog: Slide = {
     images: [
         {
             url: '/projects/collog_1.png',
-            alt: 'Collog gallery screen showing a list of games'
+            alt: 'Collog gallery screen showing a list of games',
+            width: 586,
+            height: 1303
         },
         {
             url: '/projects/collog_2.png',
-            alt: 'Collog detail screen showing Enter the Gungeon'
+            alt: 'Collog detail screen showing Enter the Gungeon',
+            width: 1043,
+            height: 2318
         }
     ],
     backgroundColor: 'bg-[#0C1000FF]',

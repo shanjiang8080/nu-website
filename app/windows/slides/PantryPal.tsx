@@ -34,11 +34,15 @@ export const PantryPal: Slide = {
     images: [
         {
             url: '/projects/pantrypal_2.png',
-            alt: 'Pantrypal home screen suggesting recipes to you'
+            alt: 'Pantrypal home screen suggesting recipes to you',
+            width: 800,
+            height: 793
         },
         {
             url: '/projects/pantrypal_1.png',
-            alt: 'Pantrypal ingredients screen editing an ingredient with multiple batches/expiration dates'
+            alt: 'Pantrypal ingredients screen editing an ingredient with multiple batches/expiration dates',
+            width: 800,
+            height: 840
         }
     ],
     iconUrl: '/projects/pantrypal.png'
